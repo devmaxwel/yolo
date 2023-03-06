@@ -20,4 +20,5 @@ services:
       - server
 networks:
   yolo-network:
+    driver: bridge
   
