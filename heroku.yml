@@ -1,0 +1,7 @@
+build:
+  docker:
+    web: docker.io/devmaxwel/yoloclient:1.0.1
+    api: docker.io/devmaxwel/yolobackend:1.0.1
+
+run:
+  web: npm run start
