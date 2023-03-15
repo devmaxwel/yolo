@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   server:
-    image: docker.io/devmaxwel/yolobackend:1.0.1
+    image: devmaxwel/yolobackend:1.0.1
     ports:
       - "5000:5000"
     env_file:
@@ -11,7 +11,7 @@ services:
       - yolo-network
   
   client:
-    image: docker.io/devmaxwel/yoloclient:1.0.1
+    image: devmaxwel/yoloclient:1.0.1
     ports:
       - "3000:3000"
     networks:
