@@ -27,7 +27,13 @@ spec:
                 secretKeyRef:
                   name: mongo-secret-uri
                   key: MONGODB_URI
-
+          volumeMounts:
+            - name: mongo-data
+              mountPath: /data/db
+      volumes:
+        - name: mongo-data
+          persistentVolumeClaim:
+            claimName: mongo-data-claim
 ---
 # Service
 apiVersion: v1
