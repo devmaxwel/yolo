@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-deployment
+  name: client-deployment
   labels:
     app: client
 spec:
@@ -18,20 +18,21 @@ spec:
     spec:
       containers:
         - name: yoloclient
-          image: devmaxwel/yoloclient:1.01
+          image: devmaxwel/yoloclient:1.0.1
           ports:
             - containerPort: 3000
-
 ---
 # Service
 apiVersion: v1
 kind: Service
 metadata:
-  name: yolobacked-service
+  name: yoloclient-service
 spec:
+  type: NodePort
   selector:
     app.kubernetes.io/name: client
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 3000
+      nodePort: 30100

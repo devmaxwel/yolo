@@ -18,9 +18,15 @@ spec:
     spec:
       containers:
         - name: yolobackend
-          image: devmaxwel/yolobackend:1.01
+          image: devmaxwel/yolobackend:1.0.1
           ports:
             - containerPort: 5000
+          env:
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret-uri
+                  key: MONGODB_URI
 
 ---
 # Service
